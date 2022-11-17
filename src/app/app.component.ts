@@ -17,7 +17,11 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 export class AppComponent {
   form = new FormGroup({});
   model: any = {};
-  options: FormlyFormOptions = {};
+  options: FormlyFormOptions = {
+    formState: {
+      disabled: true,
+    },
+  };
 
   fields: FormlyFieldConfig[] = [
     {
@@ -56,6 +60,10 @@ export class AppComponent {
           placeholder: 'Saisissez votre nom',
           required: true,
         },
+      },
+      expressions: {
+        // apply expressionProperty for disabled based on formState
+        'props.disabled': 'formState.disabled',
       },
     },
     {
