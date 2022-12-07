@@ -16,7 +16,14 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 })
 export class AppComponent {
   form = new FormGroup({});
-  model: any = {};
+  #model: any = {};
+  model = {
+    nom: 'ANDRIEUX',
+    civilite: 'mr',
+    firstName: 'Pierre',
+    nom_usage: 'ANDRIEUX2',
+    lastname: 'FORMLY',
+  };
   options: FormlyFormOptions = {
     formState: {
       disabled: true,
